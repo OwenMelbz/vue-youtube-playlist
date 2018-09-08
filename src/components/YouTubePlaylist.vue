@@ -1,14 +1,14 @@
 <template>
     <div class="ytpl-container">
 
+        <div class="ytpl-player" :class="{'ytpl-full' : playlist.length === 1}" ref="player">
+            <video-item v-if="active" :video="active" :width="width" :height="height"></video-item>
+        </div>
+
         <div v-if="playlist.length > 1" ref="scrollarea" class="ytpl-playlist" :style="`height: ${playlistHeight};`">
             <div class="ytpl-scrollable-content" :style="`width: ${playlistWidth}`">
                 <thumbnail-item v-for="video in playlist" :video="video" :key="video.id" :aspect-ratio="aspectRatio" :btn-colour="btnColour"></thumbnail-item>
             </div>
-        </div>
-
-        <div class="ytpl-player" ref="player">
-            <video-item v-if="active" :video="active" :width="width" :height="height"></video-item>
         </div>
 
     </div>
@@ -158,15 +158,15 @@
 
     @media (min-width: 620px) {
         .ytpl-container > div {
-            float: right;
+            float: left;
         }
 
-        .ytpl-player {
-            width: 100%;
-        }
-
-        .ytpl-playlist + .ytpl-player {
+        .ytpl-player{
             width: calc(100% - 160px);
+        }
+
+        .ytpl-full {
+            width: 100%;
         }
 
         .ytpl-playlist {

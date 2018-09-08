@@ -1,9 +1,8 @@
 {
   "name": "vue-youtube-playlist",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This is a simple component, which allows you to display the youtube iframe embed - with a playlist style sidebar to change between multiple videos.",
   "author": "Owen Melbourne <owenmelbz@gmail.com>",
-  "private": true,
   "main": "src/components/YouTubePlaylist.vue",
   "scripts": {
     "build": "run-s build:**",

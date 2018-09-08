@@ -14,6 +14,8 @@
             return {
                 videos: [
                     'https://www.youtube.com/watch?v=5bZQzPayuKU',
+                    'https://www.youtube.com/watch?v=5bZQzPayu3KU',
+                    'https://www.youtube.com/watch?v=5bZQzPayu1KU',
                 ],
             }
         }
