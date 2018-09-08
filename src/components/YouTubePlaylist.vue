@@ -82,9 +82,8 @@
 
             if (this.$refs.scrollarea) {
                 this.scrollbar = new PerfectScrollbar(this.$refs.scrollarea);
+                setInterval(() => this.scrollbar.update(), 10000);
             }
-
-            setInterval(() => this.scrollbar.update(), 10000);
         },
 
         destroyed() {
