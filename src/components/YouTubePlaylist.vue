@@ -7,7 +7,7 @@
 
         <div v-if="playlist.length > 1" ref="scrollarea" class="ytpl-playlist" :style="`height: ${playlistHeight};`">
             <div class="ytpl-scrollable-content" :style="`width: ${playlistWidth}`">
-                <thumbnail-item v-for="video in playlist" :video="video" :key="video.id" :aspect-ratio="aspectRatio" :btn-colour="btnColour"></thumbnail-item>
+                <thumbnail-item @play="setActiveVideo" v-for="video in playlist" :video="video" :key="video.id" :aspect-ratio="aspectRatio" :btn-colour="btnColour"></thumbnail-item>
             </div>
         </div>
 
@@ -17,7 +17,6 @@
 <script>
 
     import { parseVideo, debounce } from './helpers';
-    import EventBus from './event-bus';
     import VideoItem from './Video.vue';
     import ThumbnailItem from './Thumbnail.vue';
     import PerfectScrollbar from 'perfect-scrollbar';
@@ -72,8 +71,6 @@
 
         mounted() {
             this.playlist[0].active = true;
-
-            EventBus.$on('ytpl:play', this.setActiveVideo);
 
             this.$nextTick(() => {
                 window.onload = this.resizeVideo();

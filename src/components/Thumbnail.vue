@@ -7,7 +7,6 @@
 </template>
 
 <script>
-    import EventBus from './event-bus';
     import { debounce } from './helpers'
 
     export default {
@@ -46,7 +45,7 @@
             },
 
             watchVideo() {
-                EventBus.$emit('ytpl:play', this.video);
+                this.$emit('play', this.video);
             },
 
         }
